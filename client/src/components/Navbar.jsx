@@ -14,7 +14,7 @@ function MenuList({user,onClick}) {
 
 return (
  <div>
-  <Menu as='dv' className='inline-block text-left'>
+  <Menu as='div' className='inline-block text-left'>
     <div className='flex'>
       <Menu.Button className='inline-flex gap-2 w-full
       ronded-md bg-white md:px-4 py-2 text-sm
