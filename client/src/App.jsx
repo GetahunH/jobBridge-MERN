@@ -9,7 +9,10 @@ import JobDetail from './pages/JobDetail';
 import CompanyProfile from './pages/CompanyProfile';
 import UserProfile from './pages/UserProfile';
 
-
+/**
+ * Layout component for handling protected routes.
+ * It checks if the user is authenticated and decides what to render.
+ */
 function Layout(){
   const user = false;
   const location = useLocation();
@@ -27,6 +30,7 @@ const user ={};
 
   return (
     <main className='bg-[#f7fdfd]'>
+      {/* always shows at the top whetehr the user is logged in or not */}
       <Navbar />
       <Routes>
         <Route element={<Layout />}>
