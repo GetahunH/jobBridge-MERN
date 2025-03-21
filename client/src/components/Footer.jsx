@@ -32,7 +32,7 @@ const Footer = () => {
           <div className='w-full flex flex-wrap gap-10
           justify-between -mb-10 -px-4'>
           {footerLinks.map(({id,title,links})=>(
-            <div className='w-auto px-4' key={id}>
+            <div className='w-auto px-4' key={id + title}>
               <h2 className='font-medium text-white
               tracking-widest text-sm mb-3'>
                 {title}
@@ -43,7 +43,7 @@ const Footer = () => {
                 {links.map((link,index)=>(
                   <Link 
                   to='/'
-                  key={index}
+                  key={link}
                   className='text-gray-300 text-sm 
                   hover:text-white' 
                   >

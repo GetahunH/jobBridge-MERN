@@ -8,14 +8,16 @@ import UploadJob from './pages/UploadJob';
 import JobDetail from './pages/JobDetail';
 import CompanyProfile from './pages/CompanyProfile';
 import UserProfile from './pages/UserProfile';
+import { useSelector } from 'react-redux';
 
 /**
  * Layout component for handling protected routes.
  * It checks if the user is authenticated and decides what to render.
  */
 function Layout(){
-  const user = false;
+  const {user} = useSelector((state) => state.user);
   const location = useLocation();
+//  console.log(user);
 
   return user ? (
     <Outlet />
@@ -26,7 +28,7 @@ function Layout(){
 
 function App() {
 
-const user ={};
+  const {user} = useSelector((state) => state.user);
 
   return (
     <main className='bg-[#f7fdfd]'>
