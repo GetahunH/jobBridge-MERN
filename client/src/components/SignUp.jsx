@@ -8,7 +8,7 @@ import CustomButton from './CustomButton'
 
 
 const SignUp = ({open, setOpen}) => {
-
+    
     const dispatch = useDispatch()
     const location = useLocation()
 
@@ -272,7 +272,7 @@ const SignUp = ({open, setOpen}) => {
                               </div>
                             </form>
 
-                            {/* <div className='mt-4'>
+                            <div className='mt-4'>
                                 <p className='text-sm text-gray-700'>
                                     {isRegister
                                     ?"Already has and account"
@@ -291,7 +291,7 @@ const SignUp = ({open, setOpen}) => {
                                         "Create Account"}
                                     </span>
                                 </p>
-                            </div> */}
+                            </div> 
                         </Dialog.Panel>
                     </Transition.Child>
                 </div>

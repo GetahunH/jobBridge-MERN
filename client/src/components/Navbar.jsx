@@ -11,6 +11,7 @@ import { users } from '../utils/data';
 
 
 function MenuList({user,onClick}) {
+  
   const handleLogOut = () =>{}
 
 return (

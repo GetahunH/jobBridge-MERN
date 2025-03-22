@@ -1,4 +1,4 @@
-import React from 'react'
+import {useState} from 'react'
 
 const UploadJob = () => {
   return (
@@ -6,4 +6,4 @@ const UploadJob = () => {
   )
 }
 
-export default UploadJob
+export default UploadJob;

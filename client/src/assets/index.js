@@ -11,8 +11,10 @@ import Office from "./office.png";
 import JobImg from "./job.jpg";
 import Facebook from "./facebook.png";
 import CodeWave from "./codewave.png";
+import Bravo from './Bravo2.jpg';
 
 export {
+  Bravo,
   CodeWave,
   NoProfile,
   Facebook,
