@@ -1,11 +1,13 @@
 import {useState} from 'react';
 import { useLocation,useNavigate } from 'react-router-dom';
-import { Header } from '../components';
+import { CustomButton, Header } from '../components';
 import {MdOutlineKeyboardArrowDown} from 'react-icons/md'
 import { BiBriefcaseAlt2} from 'react-icons/bi';
 import { BsStars} from 'react-icons/bs';
 import { experience, jobTypes } from '../utils/data';
 import ListBox from '../components/ListBox';
+import { jobs } from '../utils/data';
+import JobCard from '../components/JobCard';
 // import Input from './components/Input'
 
 
@@ -144,8 +146,7 @@ const FindJobs = () => {
         </div>
       </div>
 
-      <div className='flex flex-col md:flex-row
-      gap-0 md:gap-2 md:items-center'>
+      <div className='w-full md:w-5/6 px-5 md:px-0'>
         <div className='flex items-center 
         justify-between mb-4'>
           <p className='text-sm md:text-base'>
@@ -166,6 +167,29 @@ const FindJobs = () => {
 
         </div>
 
+         
+         <div className='w-full flex flex-wrap
+         gap-4'>
+          {jobs.map((job,index)=>(
+            <JobCard job={job} key={index}/>
+          ))}
+         </div>
+
+         {numPage > page && !isFetching && (
+          <div className='w-full flex
+          items-center justify-center pt-16'>
+             <CustomButton 
+                title='Load More'
+                containerStyles={`text-blue-600
+                  py-1.5 px-5 focus:outline-none
+                  hover:bg-blue-700 hover:text-white
+                  rounded-full text-base border
+                  border-blue-600`}
+                  />
+
+            </div>
+         )}
+        
       </div>
      </div>
     </div>
