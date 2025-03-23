@@ -3,7 +3,9 @@ import { useLocation,useNavigate } from 'react-router-dom';
 import { Header } from '../components';
 import {MdOutlineKeyboardArrowDown} from 'react-icons/md'
 import { BiBriefcaseAlt2} from 'react-icons/bi';
-import { jobTypes } from '../utils/data';
+import { BsStars} from 'react-icons/bs';
+import { experience, jobTypes } from '../utils/data';
+import ListBox from '../components/ListBox';
 // import Input from './components/Input'
 
 
@@ -33,6 +35,11 @@ const FindJobs = () => {
       setFilterJobTypes([...filterJobTypes,val]);
     }
   };
+
+
+  const filterExperience = async (e) => {
+    setFilterExp(e);
+  }
   return (
     <div>
       <Header 
@@ -74,11 +81,9 @@ const FindJobs = () => {
 
           </div>
 
-        </div>
 
-      </div>
 
-      <div className='flex flex-col gap-2'>
+          <div className='flex flex-col gap-2'>
         {jobTypes.map((jtype,index)=>(
           <div
             key={index}
@@ -96,14 +101,75 @@ const FindJobs = () => {
             </div>
         ))}
 
+          </div>
+
+
+
+        </div>
+
+{/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */}
+       <div className='py-2 mt-4'>
+          <div className='flex justify-between 
+          mb-3'>
+            <p className='flex items-center
+            gap-2 font-semibold'>
+            <BsStars />
+              Experience
+            </p>
+
+            <button>
+              <MdOutlineKeyboardArrowDown />
+            </button>
+          </div>
+
+          <div className='flex flex-col gap-2'>
+        {experience.map((exp)=>(
+          <div
+            key={exp.title}
+            className='flex gap-2 text-sm 
+            md:text-base'
+          >
+            <input 
+            type="checkbox"
+            value = {exp?.value}
+            className = 'w-4 h-4'
+            onChange = {(e)=>filterExperience(e.target.value)}
+             />
+
+             <span>{exp.title}</span>
+            </div>
+        ))}
+
+          </div>
+        </div>
       </div>
 
+      <div className='flex flex-col md:flex-row
+      gap-0 md:gap-2 md:items-center'>
+        <div className='flex items-center 
+        justify-between mb-4'>
+          <p className='text-sm md:text-base'>
+            Showing: <span 
+            className='font-semibold'>1,000</span>
+              Jobs
+              Available 
+          </p>
+
+          <div className='flex flex-col md:flex-row
+          gap-0 md:gap-2 md:items-center'>
+            <p className='text-sm md:text-base'>
+              Sort By:
+            </p>
+            <ListBox sort = {sort} setSort = {setSort}/>
+
+          </div>
+
+        </div>
+
+      </div>
      </div>
-
-
-      
     </div>
   )
 }
 
-export default FindJobs
+export default FindJobs;
